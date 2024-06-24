@@ -162,7 +162,7 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 --
 
 CREATE TABLE public.planet_types (
-    planet_type_id integer NOT NULL,
+    planet_types_id integer NOT NULL,
     name character varying(40),
     description text NOT NULL
 );
@@ -189,7 +189,7 @@ ALTER TABLE public.planet_types_planet_type_id_seq OWNER TO freecodecamp;
 -- Name: planet_types_planet_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.planet_types_planet_type_id_seq OWNED BY public.planet_types.planet_type_id;
+ALTER SEQUENCE public.planet_types_planet_type_id_seq OWNED BY public.planet_types.planet_types_id;
 
 
 --
@@ -251,10 +251,10 @@ ALTER TABLE ONLY public.planet ALTER COLUMN planet_id SET DEFAULT nextval('publi
 
 
 --
--- Name: planet_types planet_type_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: planet_types planet_types_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.planet_types ALTER COLUMN planet_type_id SET DEFAULT nextval('public.planet_types_planet_type_id_seq'::regclass);
+ALTER TABLE ONLY public.planet_types ALTER COLUMN planet_types_id SET DEFAULT nextval('public.planet_types_planet_type_id_seq'::regclass);
 
 
 --
@@ -442,7 +442,7 @@ ALTER TABLE ONLY public.planet_types
 --
 
 ALTER TABLE ONLY public.planet_types
-    ADD CONSTRAINT planet_types_pkey PRIMARY KEY (planet_type_id);
+    ADD CONSTRAINT planet_types_pkey PRIMARY KEY (planet_types_id);
 
 
 --
